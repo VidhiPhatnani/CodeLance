@@ -1,0 +1,25 @@
+.coursecodes ul
+{
+     list-style-type: none;
+}
+.coursecodes li
+{
+     background-color: white;
+     padding: 2px;
+     border-radius: 4px;
+     margin-bottom: 5px;
+     width: 200px;
+     height: 90px;
+     text-align: center;
+}
+.regimg img
+{ 
+      width: 1330px;
+      height: 1400px;
+}
+.regform
+{
+      position: relative;
+      margin-top: -1400px;
+      margin-left: -20px;
+}

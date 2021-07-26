@@ -1,0 +1,32 @@
+.count img
+{
+height:100px;
+width:70px;
+float:left;
+align:center;
+opacity:100%
+padding:5px;
+}
+.container td
+{
+padding-left:150px;
+padding-right:150px;
+text-align:center
+
+}
+#count-bckimg
+{
+height:300px;
+width:100%;
+opacity:20%;
+}
+.container
+{
+position:relative;
+}
+.count
+{
+position:absolute;
+top:30%;
+bottom:60%;
+}

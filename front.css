@@ -1,0 +1,19 @@
+.first img
+{
+     width: 1320px;
+     height: 700px;
+}
+.second
+{
+      position: relative;
+      margin-top: -500px;
+      margin-left: 700px;
+}
+ h1,h5
+{
+      font-size: 50px;
+}
+h2
+{
+      font-size: 30px;
+}

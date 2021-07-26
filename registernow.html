@@ -1,0 +1,133 @@
+<html>
+     <head>
+            <title>Register Now</title>
+           <link rel = "stylesheet" type = "text/css" href = "design.css">
+           <link rel = "stylesheet" type = "text/css" href = "coursecode.css">
+            <script language = "javascript">
+                function checkempty()
+                 {
+	   var name = document.getElementById("full_name").value
+                        var num = document.getElementById("mobile_no").value;
+                        var mail = document.getElementById("email").value;
+                        var pword = document.getElementById("pass").value;
+			var dotpos = mail.lastIndexOf(".");
+			var atpos = mail.indexOf("@");
+
+                        if(name == "" || num == "" || mail == "" || pword == "")
+                        {
+                              alert("Incomplete form");
+			}
+			else if(!isNaN(name))
+			{
+			      alert("Invalid Name");
+   			     
+			}
+                       
+			else if(atpos<1||dotpos<atpos+2||dotpos+2>=mail.length)
+                         {
+                              alert("Invalid email");
+			      
+                              
+                         }
+			else if(isNaN(num) || num.length != 10)
+			{
+			      alert("Invalid Number");
+			    
+			}
+                   	else if(pword.length < 8)
+                        {
+                                alert("Password must have atleast 8 Characters");
+				
+                              
+                         }
+                        else
+                         {
+                                alert("Thank you for registering with CodeLance !");
+				
+                         }
+               }
+           </script>
+     </head>
+     <body bgcolor = "#F3ECEC">
+             <!-- ----------------Header----------------------- -->
+                    <div id = "header" class="section">
+                          <div id="brand">
+                                  <img alt="" class="img-circle" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSs7iK9_G5dPv3wsfXHdm-AOq5kTrwlLRTHOMNXAOS_i60PY079bqruKGKzrwEXVXcT944&usqp=CAU">
+                                   <p>LANCE</p>
+                          </div>
+                          <div id = "navigation">
+	              <ul class = "nav-items">
+                                        <li class = "nav-link">
+                                             <a href="home2.html"><b>Home</b></a>
+                                        </li>
+                                        <li class = "nav-link">
+		    <a href = "oucourses.html"><b>Our Courses</b></a>	                   
+                                         </li>
+                                         <li class = "nav-link">
+                                               <a href = "#"><b>Register Now</b></a>
+                                         </li>
+                                   </ul>
+                          </div>
+                    </div>
+                    <!-- ----------------Header End----------------------- -->
+             <!-- ---------------------Content----------------------------- -->
+            <!-- ----------------------Registeration-------------------- -->
+             <h2 align = "center"><span>Register here</span></h2>
+                 <form method = "post" class = "f1" align = "center">
+                 <input type = "text" placeholder = "Full Name" id = "full_name"><br>
+                 <input type = "text" placeholder = "Email" id = "email"><br>
+                <input type = "text" placeholder = "Mobile Number" id = "mobile_no"><br>
+                <input type = "text" placeholder = "Password" id = "pass"><br>
+               <input type = "submit" value = "Register" onClick ="checkempty()" class = "submit">
+             </form>
+           <!-- -----------------------Registration End-------------------- -->
+           <!-- -----------------------Calculator for the courses taken------ -->
+                <h2 align = "center"><span>Calculate your investment in improving skills</span></h2>
+                 <div class = "coursecodes">
+	<ul>
+                            <li><p>HTML , CSS , JAVASCRIPT <br>  Course Code : CL1</p></li>
+                            <li><p>ANDROID APP DEVELOPMENT <br> Course Code : CL 2</p></li>
+                            <li><p>SQL <br> Course Code : CL3</p></li>
+                            <li><p>C , C++ , C# <br> Course Code : CL4</p></li>
+                           <li><p>DATA SCIENCE <br> Course Code : CL5</p></li>
+                            <li><p>GAME DEVELOPMENT<br> Course Code : CL6</p></li>
+                            <li><p>PYTHON <br> Course Code : CL7</p></li>
+                            <li><p>MACHINE LEARNING <br> Course Code : CL8</p></li>
+                            <li><p>NETWORK SECURITY<br> Course Code : CL9</p></li>
+                    </ul>
+                </div>
+                 <form align = "right" name = "f2" method = "post" action ="<?php  echo $_SERVER['PHP_SELF'];  ?>">
+                 </form>
+           <!-- -----------------------Calculator for the course taken END------ -->
+            <!-- ---------------------Content End------------------------- -->
+            <!-- ----------------Footer------------------------------- -->
+                          <div id="contactus" class="section"> 
+                               <form id = "form1" align = center>
+                                   <h2 align = "center"><span>Contact Us</span></h2>
+                                   <input type = "text" name="tname" placeholder="Name" required><br>
+  	              <input type = "text" name="temail" placeholder="Email" required><br>
+                                   <textarea name="message" placeholder = "Message" required></textarea><br>
+	              <input type = "submit" value= "Send Message" class = "submit">
+	         </form>
+                          </div>
+                          <div id="followus" class="section">
+                                  <h2 align="center"><span>Follow Us</span></h2><br>
+                                  <a href = "website_home.html" target="_top">
+                                        <img alt="CodeLance" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSs7iK9_G5dPv3wsfXHdm-AOq5kTrwlLRTHOMNXAOS_i60PY079bqruKGKzrwEXVXcT944&usqp=CAU">
+                                   </a>
+                                  <a href="#">
+                                       <img alt="Facebook" src="https://cdn3.iconfinder.com/data/icons/capsocial-round/500/facebook-512.png">
+                                  </a>
+                                 <a href = "#">
+                                       <img alt = "Twitter" src = "https://www.sololearn.com/Uploads/icons/twitter.png">
+                                 </a>
+                                 <a href="#">
+                                       <img alt = "Instagram" src = "https://i.pinimg.com/originals/71/72/16/7172161b580470deb78078669236d2c1.jpg">
+                                 </a>
+                          </div>
+                         <div class = "copyright">
+	           &copy; 2021 CODELANCE .All rights reserved. 
+                         </div>
+                    <!-- ----------------Footer End----------------------- -->       
+     </body>
+</html>

@@ -1,0 +1,33 @@
+
+.course td
+{
+padding:10px;
+text-align:center;
+font-weight:bold
+}
+.course img
+{
+height:200px;
+width:200px;
+border-radius:50%;
+}
+#but
+{
+background-color:#E94B4B;
+border-radius:6px;
+padding:10px;
+font-weight:bold;
+color:white;
+text-decoration:none
+}
+.categoryname
+{
+color:grey;
+font-size:18px;
+font-family:"Arial"
+}
+.course a:hover
+{
+opacity:50%;
+}
+

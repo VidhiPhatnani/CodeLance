@@ -1,0 +1,101 @@
+<!-- CSS -->
+body {
+    font-family: 'Handlee', cursive;
+    font-size: 13pt;
+    background-color: #efefef;
+    padding: 10px;
+    margin: 0;
+}
+a {
+   text-decoration: none;
+}
+ul{
+   list-style-type: none;
+}
+#header {
+    background-image: url("https://st3.depositphotos.com/8543466/i/600/depositphotos_337402390-stock-photo-color-papers-geometry-composition-banner.jpg");
+    background-size: cover;
+    display : flex;
+    flex-direction : row;
+    justify-content: space-between;
+}
+.img-circle {
+    border: 1px solid white;
+    border-radius: 4px;
+    max-width: 40%;
+}
+#brand{
+    font-size: 25px;
+    color: #3b464c;
+    padding-top: 5px;
+    margin: 0;
+    font-weight: bold;
+    text-align: center;
+}
+.nav-items {
+   display: flex;
+   margin-top: 90px;
+}
+.nav-link a{
+   padding: 20px;
+   font-size: 25px;
+   color : black;
+   position: relative;
+}
+.section {
+    background-color: #fff;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+h2 span{
+    border: 2px;
+    border-style: dashed;
+    padding: 10px;
+}
+.submit{
+    padding: 12px 45px;
+    border-radius: 5px;
+    background-color: black;
+    color: #ffffff;
+    font-weight: bold;
+}
+input,textarea{
+   margin-bottom: 10px;
+    font-size: 20px;
+    padding: 15px 10px 10px;
+    border-radius: 5px;
+    width: 30%;
+    height: 15%;
+}
+#contactus
+{
+     width: 1300px;
+     background-image: url("https://st3.depositphotos.com/8543466/i/600/depositphotos_337402390-stock-photo-color-papers-geometry-composition-banner.jpg");
+     height: 300px;
+     background-size: cover;
+}
+#followus img {
+    height: 50px;
+    width: 50px;
+     margin-left: 7px;
+    margin-right: 7px;
+}
+#followus a {
+    text-decoration: none;
+    padding: 10px;
+}
+#followus {
+   text-align: center;
+}
+.copyright{
+    font-size: 15px;
+    text-align: right;
+    padding-bottom: 10px;
+    color: grey;
+}
+#response
+{
+     width: 1400px;
+     height:1000px;
+}

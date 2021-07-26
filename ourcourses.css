@@ -1,0 +1,34 @@
+.ourcourses td
+{
+     height: 300px;
+     width: 300px;
+     margin:  0px;
+     padding: 0px;
+     background-color: #F5F5DC;
+     border-radius: 4px;
+    text-align: center;
+    font-size: 18px;
+    line-height: 22px;
+    color: black;
+    box-sizing: border-box;
+}
+.ourcourses img
+{
+    margin:  0px;
+     padding: 0px;
+     height: 200px;
+     width: 300px;
+     border-radius: 4px;
+}
+a:link
+{
+     color: black;
+}
+a:visited
+{
+     color: black;
+}
+a:hover
+{
+    opacity : 0.5;
+}
