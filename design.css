@@ -70,7 +70,7 @@ input,textarea{
 }
 #contactus
 {
-     width: 1300px;
+     width: 100%;
      background-image: url("https://st3.depositphotos.com/8543466/i/600/depositphotos_337402390-stock-photo-color-papers-geometry-composition-banner.jpg");
      height: 300px;
      background-size: cover;
