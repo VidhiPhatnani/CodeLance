@@ -53,7 +53,7 @@ pipeline {
 //Script//
 node {
     stage ('SCM checkout'){
-        checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/VidhiPhatnani/CodeLance.git']]])
+        checkout([$class: 'GitSCM', branches: [[name: ':origin/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/VidhiPhatnani/CodeLance.git']]])
         }
     stage('build') {
         echo 'Build'
