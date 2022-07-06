@@ -2,30 +2,17 @@
 pipeline {
     agent any
 
-    environment {
-		DOCKERHUB_CREDENTIALS=credentials('dockerhub_jenkins')
-	}
+    
     stages {
         stage('Docker Build and Tag') {
             steps {
                 echo 'Building..'
-                sh 'docker build -t firstimage:latest .' 
-                sh 'docker tag firstimage vidhip/firstimage:latest'
-                sh 'docker tag firstimage vidhip/firstimage:$BUILD_NUMBER'
             }
         }
-        stage('Login') {
-
-			steps {
-				sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
-			}
-		}
         stage('Publish image to Docker Hub') {
           
             steps {
-        withDockerRegistry([ credentialsId: "dockerhub_jenkins", url: "" ]) {
-          sh  'docker push vidhip/firstimage:latest'
-          sh  'docker push vidhip/firstimage:$BUILD_NUMBER' 
+             echo 'Publishing ...'
         }
                   
           }
@@ -33,32 +20,27 @@ pipeline {
         stage('Run Docker container on Jenkins Agent') {
              
             steps {
-                sh "docker run -d -p 8081:80 vidhip/firstimage"
+               echo 'Running..'
  
             }
         }
         stage('Run Docker container on remote hosts') {
              
             steps {
-                sh "docker -H ssh://jenkins@192.168.0.137 run -d -p 8081:80 vidhip/firstimage"
+                echo 'Running on remote server'
             }
         }
-    }
-    post {
-		always {
-			sh 'docker logout'
-		}
-	}
+     }
 }
 //Script//
 node {
-    stage ('SCM checkout'){
-        checkout([$class: 'GitSCM', branches: [[name: ':origin/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/VidhiPhatnani/CodeLance.git']]])
-        }
-    stage('build') {
-        echo 'Build'
-    }
-    stage('test') {
-        echo 'Test'
+    checkout scm
+
+    docker.withRegistry('https://registry.hub.docker.com', 'dockerhub_jenkins') {
+
+        def customImage = docker.build("vidhip/firstimage")
+
+        /* Push the container to the custom Registry */
+        customImage.push()
     }
 }
