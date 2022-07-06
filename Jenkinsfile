@@ -2,6 +2,9 @@
 pipeline {
     agent any
 
+    environment {
+		DOCKERHUB_CREDENTIALS=credentials('dockerhub_jenkins')
+	}
     stages {
         stage('Docker Build and Tag') {
             steps {
@@ -11,6 +14,12 @@ pipeline {
                 sh 'docker tag nginxtest vidhip/firstimage:$BUILD_NUMBER'
             }
         }
+        stage('Login') {
+
+			steps {
+				sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+			}
+		}
         stage('Publish image to Docker Hub') {
           
             steps {
@@ -35,16 +44,9 @@ pipeline {
             }
         }
     }
-}
-// Script //
-node {
-    stage('Build') {
-        echo 'Building....'
-    }
-    stage('Test') {
-        echo 'Building....'
-    }
-    stage('Deploy') {
-        echo 'Deploying....'
-    }
+    post {
+		always {
+			sh 'docker logout'
+		}
+	}
 }
