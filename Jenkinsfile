@@ -10,8 +10,8 @@ pipeline {
             steps {
                 echo 'Building..'
                 sh 'docker build -t firstimage:latest .' 
-                sh 'docker tag nginxtest vidhip/firstimage:latest'
-                sh 'docker tag nginxtest vidhip/firstimage:$BUILD_NUMBER'
+                sh 'docker tag firstimage vidhip/firstimage:latest'
+                sh 'docker tag firstimage vidhip/firstimage:$BUILD_NUMBER'
             }
         }
         stage('Login') {
