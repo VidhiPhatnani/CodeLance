@@ -3,19 +3,35 @@ pipeline {
     agent any
 
     stages {
-        stage('Build') {
+        stage('Docker Build and Tag') {
             steps {
                 echo 'Building..'
+                sh 'docker build -t firstimage:latest .' 
+                sh 'docker tag nginxtest vidhip/firstimage:latest'
+                sh 'docker tag nginxtest vidhip/firstimage:$BUILD_NUMBER'
             }
         }
-        stage('Test') {
+        stage('Publish image to Docker Hub') {
+          
             steps {
-                echo 'Testing..'
+        withDockerRegistry([ credentialsId: "dockerhub_jenkins", url: "" ]) {
+          sh  'docker push vidhip/firstimage:latest'
+          sh  'docker push vidhip/firstimage:$BUILD_NUMBER' 
+        }
+                  
+          }
+        }
+        stage('Run Docker container on Jenkins Agent') {
+             
+            steps {
+                sh "docker run -d -p 8081:80 vidhip/firstimage"
+ 
             }
         }
-        stage('Deploy') {
+        stage('Run Docker container on remote hosts') {
+             
             steps {
-                echo 'Deploying....'
+                sh "docker -H ssh://jenkins@192.168.0.137 run -d -p 8081:80 vidhip/firstimage"
             }
         }
     }
